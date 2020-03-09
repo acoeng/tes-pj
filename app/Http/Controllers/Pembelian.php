@@ -8,16 +8,22 @@ use Illuminate\Http\Request;
 class Pembelian extends Controller
 {
     /**
-     * Date : 07-03-2020
-     * Description : Create transaksi pembelian
+     * Date : 09-03-2020
+     * Description : Penggunaan token
      * Developer : Ari
      * Status : Create
      */
     public function __construct()
     {
-        //
+        $this->middleware("login");
     }
 
+    /**
+     * Date : 07-03-2020
+     * Description : Memperoleh semua transaksi pembelian
+     * Developer : Ari
+     * Status : Create
+     */
     public function getAllRecord()
     {
         $data = DB::table('pembelian')->get();
@@ -25,6 +31,12 @@ class Pembelian extends Controller
         return response()->json($result);
     }
 
+    /**
+     * Date : 07-03-2020
+     * Description : Memperoleh item pembelian barang berdasarkan id_pembelian
+     * Developer : Ari
+     * Status : Create
+     */
     public function getRecordDetail($id)
     {
         $data = DB::table('pembelian_dt')
@@ -37,6 +49,12 @@ class Pembelian extends Controller
         return response()->json($result);
     }
 
+    /**
+     * Date : 07-03-2020
+     * Description : Create transaksi pembelian
+     * Developer : Ari
+     * Status : Create
+     */
     public function create(Request $request)
     {
         $id_barang = $request->input('id_barang');

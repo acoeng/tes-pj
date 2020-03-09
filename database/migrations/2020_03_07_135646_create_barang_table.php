@@ -12,20 +12,13 @@ class CreateBarangTable extends Migration
      * Developer : Ari
      * Status : Create
      */
-
-    /**
-     * Date : 08-03-2020
-     * Description : Mengubah panjang karakter/tipe data kode_barang & nama_barang
-     * Developer : Ari
-     * Status : Edit
-     */
     public function up()
     {
-        Schema::table('barang', function (Blueprint $table) {
+        Schema::create('barang', function (Blueprint $table) {
             $table->uuid('id')->unique()->default(DB::Raw('uuid_generate_v4()'));
-            $table->primary('id');
-            $table->string('kode_barang', 20)->change();
-            $table->string('nama_barang', 100)->change();
+            $table->string('kode_barang', 20);
+            $table->string('nama_barang', 100);
+            $table->integer('harga_jual');
             $table->string('gambar_barang');
         });
     }

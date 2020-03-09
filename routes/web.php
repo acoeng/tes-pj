@@ -17,9 +17,11 @@ $app->get('/', function () use ($app) {
 
 $app->get('/barang', 'Barang@getAllRecord'); 
 $app->get('/barang/{id}', 'Barang@getOneRecord'); 
-$app->post('/barang', 'Barang@create'); 
+//$app->post('/barang', 'Barang@create'); 
+$app->post('/barang', 'Barang@storeBarang'); 
 $app->put('/barang/{id}', 'Barang@update'); 
 $app->delete('/barang/{id}', 'Barang@delete');
+$app->get('/rekap', 'RekapTransaksi@getTransaksi'); 
 
 $app->get('/stok', 'BarangStok@getAllRecord'); 
 $app->get('/stok/{id}', 'BarangStok@getOneRecord'); 
@@ -32,5 +34,5 @@ $app->post('/penjualan', 'Penjualan@create');
 $app->get('/penjualan', 'Penjualan@getAllRecord');
 $app->get('/penjualan/{id}', 'Penjualan@getRecordDetail');
 
-//$router->post("/register", "AuthController@register");
-$router->post("/login", "AuthController@login");
+$app->post("/register", "AuthController@register");
+$app->post("/login", "AuthController@login");

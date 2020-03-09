@@ -7,9 +7,10 @@ use Illuminate\Database\Migrations\Migration;
 class CreatePenjualanDetailTable extends Migration
 {
     /**
-     * Run the migrations.
-     *
-     * @return void
+     * Date : 07-03-2020
+     * Description : Create table penjualan detail
+     * Developer : Ari
+     * Status : Create
      */
     public function up()
     {

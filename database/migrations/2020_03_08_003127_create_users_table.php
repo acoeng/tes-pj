@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string("email")->unique();
             $table->string("password");
             $table->string("token")->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
 
     }

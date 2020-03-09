@@ -8,16 +8,22 @@ use Illuminate\Http\Request;
 class BarangStok extends Controller
 {
     /**
-     * Date : 07-03-2020
-     * Description : Create barang stok
+     * Date : 09-03-2020
+     * Description : Penggunaan token
      * Developer : Ari
      * Status : Create
      */
     public function __construct()
     {
-        //
+        $this->middleware("login");
     }
 
+    /**
+     * Date : 07-03-2020
+     * Description : Memperoleh semua data dari tabel barang_stok
+     * Developer : Ari
+     * Status : Create
+     */
     public function getAllRecord()
     {
         $data = DB::table('barang_stok')
@@ -29,6 +35,12 @@ class BarangStok extends Controller
         return response()->json($result);
     }
 
+    /**
+     * Date : 07-03-2020
+     * Description : Memperoleh data stok barang berdasarkan id
+     * Developer : Ari
+     * Status : Create
+     */
     public function getOneRecord($id)
     {
         $data = DB::table('barang_stok')

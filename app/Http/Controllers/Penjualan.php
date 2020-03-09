@@ -8,6 +8,17 @@ use Illuminate\Http\Request;
 class Penjualan extends Controller
 {
     /**
+     * Date : 09-03-2020
+     * Description : Penggunaan token
+     * Developer : Ari
+     * Status : Create
+     */
+    public function __construct()
+    {
+        $this->middleware("login");
+    }
+    
+    /**
      * Date : 07-03-2020
      * Description : Get semua transaksi penjualan
      * Developer : Ari

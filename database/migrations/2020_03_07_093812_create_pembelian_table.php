@@ -12,19 +12,12 @@ class CreatePembelianTable extends Migration
      * Developer : Ari
      * Status : Create
      */
-
-    /**
-     * Date : 08-03-2020
-     * Description : mengubah tipe data nonota
-     * Developer : Ari
-     * Status : Edit
-     */
     public function up()
     {
-        Schema::table('pembelian', function (Blueprint $table) {
+        Schema::create('pembelian', function (Blueprint $table) {
             $table->uuid('id')->unique()->default(DB::Raw('uuid_generate_v4()'));
-            $table->string('nonota', 50)->nullable()->change();
-            $table->date('tanggal_nota')->change();
+            $table->string('nonota', 50)->nullable();
+            $table->date('tanggal_nota');
         });
     }
 
